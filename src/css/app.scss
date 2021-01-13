@@ -30,14 +30,13 @@ $flat-border-radius: 5px;
   }
   .rooms-filter-group {
     .q-btn {
-      height: 40px;
       border: 1px solid $flat-border-color;
       background-color: white;
     }
   }
   .q-btn {
     height: 40px;
-    border-radius: $flat-border-radius;
+    font-weight: bold;
   }
   .q-btn.active-btn {
     background-color: $flat-active-color;
@@ -56,6 +55,6 @@ $flat-border-radius: 5px;
   }
   .range-filter-range {
     color: $flat-active-color;
-    width: 175px;
+    height: 32px;
   }
 }
