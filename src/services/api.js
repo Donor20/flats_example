@@ -114,8 +114,14 @@ const flats = [
 ]
 
 class API {
-  async getFlats () {
-    return flats
+  async getFlats ({ rooms, porch }) {
+    const result = []
+    for (const flat of flats) {
+      if (rooms && flat.rooms !== rooms) continue
+      if (flat.porch < porch.min || flat.porch > porch.max) continue
+      result.push(flat)
+    }
+    return result
   }
 }
 

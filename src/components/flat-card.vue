@@ -1,15 +1,25 @@
 <template>
-  <q-card>
+  <q-card class="no-shadow">
     <q-card-section>
-      {{flat}}
       <div class="row">
         <div style="opacity: 50%">{{flat.porch}} этаж</div>
-        <div style="flex: 1;"></div>
-        {{flat.rooms}} {{getRoomWord(flat.rooms)}} - {{flat.square}} м²
+        <div class="row q-ml-auto">
+          {{flat.rooms}}
+          {{roomWord}}
+          -
+          {{flat.square}} м²
+        </div>
       </div>
-      <div class="items-center" style="border: 1px solid #EBEBEB;border-radius: 5px; width: 250px; height: 250px;">
-        <q-img :src="`${flat.plan}`"></q-img>
+      <div class="items-center"
+           style="border: 1px solid #EBEBEB; border-radius: 5px; height: 250px;"
+      >
+        <div class="q-ml-auto" style="border-left: 1px solid #EBEBEB; border-bottom: 1px solid #EBEBEB; border-bottom-left-radius: 5px; width: 62px; height: 30px;">
+          № {{flat.number}}
+        </div>
+        <q-img :src="flat.plan"></q-img>
       </div>
+      <div class="text-right">{{formattedPrice}}р.</div>
+      <div class="text-right" style="opacity: 50%">{{formattedPriceForSquare}} р. за м²</div>
     </q-card-section>
   </q-card>
 </template>
@@ -21,8 +31,8 @@ export default {
   data () {
     return { }
   },
-  methods: {
-    getRoomWord (cnt) {
+  computed: {
+    roomWord () {
       const getWord = (n, w1, w2, w5) => {
         let tmp = n % 100
         if (tmp >= 5 && tmp <= 20) return w5
@@ -31,12 +41,22 @@ export default {
         if (tmp >= 2 && tmp <= 4) return w2
         return w5
       }
-      return getWord(cnt, 'комната', 'комнаты', 'комнат')
+      return getWord(this.flat.rooms, 'комната', 'комнаты', 'комнат')
+    },
+    formattedPrice () {
+      return this.getFormattedNumber(this.flat.price)
+    },
+    formattedPriceForSquare () {
+      return this.getFormattedNumber(this.flat.price)
+    }
+  },
+  methods: {
+    getFormattedNumber (number) {
+      return number.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ')
     }
   }
 }
 </script>
 
-<style scoped>
-
+<style scoped lang="scss">
 </style>
