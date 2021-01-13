@@ -10,13 +10,13 @@
           {{flat.square}} м²
         </div>
       </div>
-      <div class="flat-plan-img items-center"
+      <div class="flat-plan items-center"
            style="border: 1px solid #EBEBEB; border-radius: 5px;"
       >
         <div class="q-ml-auto" style="border-left: 1px solid #EBEBEB; border-bottom: 1px solid #EBEBEB; border-bottom-left-radius: 5px; width: 62px; height: 30px;">
           № {{flat.number}}
         </div>
-        <q-img class="flat-plan-img items-center" :src="flat.plan"></q-img>
+        <q-img class="flat-plan-img" :src="flat.plan"></q-img>
       </div>
       <div class="text-right">{{formattedPrice}}р.</div>
       <div class="text-right" style="opacity: 50%">{{formattedPriceForSquare}} р. за м²</div>
@@ -63,9 +63,13 @@ export default {
 
 <style scoped lang="scss">
 .flat-card {
-  .flat-plan-img {
-    /*height: 250px;*/
+  .flat-plan {
     width: 250px;
+    height: 250px;
+  }
+  .flat-plan-img {
+    width: 230px;
+    margin: auto;
   }
   .active-btn {
     display: none;
@@ -73,8 +77,10 @@ export default {
 }
 .flat-card:hover {
   .flat-plan-img {
+    width: 186px;
+  }
+  .flat-plan {
     height: 200px;
-    width: 250px;
   }
   .active-btn {
     display: inline-flex;
