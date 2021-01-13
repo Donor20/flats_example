@@ -1,5 +1,5 @@
 <template>
-  <q-card class="no-shadow">
+  <q-card class="flat-card no-shadow">
     <q-card-section>
       <div class="row">
         <div style="opacity: 50%">{{flat.porch}} этаж</div>
@@ -10,16 +10,20 @@
           {{flat.square}} м²
         </div>
       </div>
-      <div class="items-center"
-           style="border: 1px solid #EBEBEB; border-radius: 5px; height: 250px;"
+      <div class="flat-plan-img items-center"
+           style="border: 1px solid #EBEBEB; border-radius: 5px;"
       >
         <div class="q-ml-auto" style="border-left: 1px solid #EBEBEB; border-bottom: 1px solid #EBEBEB; border-bottom-left-radius: 5px; width: 62px; height: 30px;">
           № {{flat.number}}
         </div>
-        <q-img :src="flat.plan"></q-img>
+        <q-img class="flat-plan-img items-center" :src="flat.plan"></q-img>
       </div>
       <div class="text-right">{{formattedPrice}}р.</div>
       <div class="text-right" style="opacity: 50%">{{formattedPriceForSquare}} р. за м²</div>
+      <q-btn @click="getFlats"
+             class="active-btn full-width" unelevated>
+        Применить
+      </q-btn>
     </q-card-section>
   </q-card>
 </template>
@@ -59,4 +63,22 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.flat-card {
+  .flat-plan-img {
+    /*height: 250px;*/
+    width: 250px;
+  }
+  .active-btn {
+    display: none;
+  }
+}
+.flat-card:hover {
+  .flat-plan-img {
+    height: 200px;
+    width: 250px;
+  }
+  .active-btn {
+    display: inline-flex;
+  }
+}
 </style>
