@@ -26,7 +26,6 @@
           v-model="rangeFilter.value"
           :min="rangeFilter.min"
           :max="rangeFilter.max"
-          style=""
         />
       </div>
       <div style="padding-top: 28px; width: 201px;">
