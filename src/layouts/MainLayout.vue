@@ -32,9 +32,6 @@ export default {
   flex: 1;
   width: 100%;
   overflow: auto;
-  background-repeat: no-repeat !important;
-  background-size: cover !important;
-  background-position: bottom !important;
 }
 body {
   background-color:  #F8F8F8;

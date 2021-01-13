@@ -41,11 +41,11 @@
       </div>
     </div>
     <q-scroll-area class="scrollArea">
-      <div class="row q-gutter-md">
+      <div class="row" style="margin-top: -30px; margin-left: -30px;">
         <flat-card v-for="flat in flats" :key="flat.building_id + '_' + flat.id"
                    class="my-card"
                    :flat="flat"
-                   style="width: 270px; height: 365px;"
+                   style="width: 270px; height: 365px; margin-top: 30px; margin-left: 30px;"
         />
       </div>
     </q-scroll-area>

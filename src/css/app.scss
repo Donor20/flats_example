@@ -11,9 +11,11 @@ $flat-border-radius: 5px;
 
 
 .main-layout {
-  max-width: 1170px;
+  //max-width: 1170px;
+  max-width: 1200px;
   height: 100%;
   margin: 0 auto;
+  padding-left: 15px;
   .dash {
     opacity: 50%;
     align-self: center;
