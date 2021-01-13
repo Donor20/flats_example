@@ -125,20 +125,5 @@ export default {
   }
   background-color: white;
 }
-.q-btn {
-  height: 40px;
-  border-radius: 5px;
-}
-.rooms-filter-group {
-  .q-btn {
-    height: 40px;
-    border-radius: 5px;
-    border: 1px solid #D8D8D8;
-    background-color: white;
-  }
-}
-.q-btn.active-btn {
-  background-color: #70D24E;
-  color: white;
-}
+
 </style>

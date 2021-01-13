@@ -22,7 +22,7 @@
       <div class="text-right" style="opacity: 50%">{{formattedPriceForSquare}} р. за м²</div>
       <q-btn @click="getFlats"
              class="active-btn full-width" unelevated>
-        Применить
+        Подробнее
       </q-btn>
     </q-card-section>
   </q-card>

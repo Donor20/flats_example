@@ -4,3 +4,25 @@
   font-family: GothamPro;
   src: url(./fonts/GothamPro.woff);
 }
+
+$flat-active-color: #70D24E;
+$flat-border-color: #D8D8D8;
+$flat-border-radius: 5px;
+
+.rooms-filter-group {
+  .q-btn {
+    height: 40px;
+    border-radius: 5px;
+    border: 1px solid $flat-border-color;
+    background-color: white;
+  }
+}
+.q-btn {
+  height: 40px;
+  border-radius: $flat-border-radius;
+}
+.q-btn.active-btn {
+  background-color: $flat-active-color;
+  color: white;
+  border: 0;
+}
