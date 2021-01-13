@@ -33,11 +33,4 @@ export default {
   width: 100%;
   overflow: auto;
 }
-body {
-  background-color:  #F8F8F8;
-  font-family: GothamPro,serif;
-  font-size: 12px;
-  line-height: 28px;
-  font-weight: bold;
-}
 </style>

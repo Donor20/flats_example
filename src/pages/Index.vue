@@ -1,6 +1,6 @@
 <template>
-  <q-page class="page">
-    <h4 style="text-transform: uppercase; text-align: center;">Lorem ipsum dolor sit</h4>
+  <q-page class="page flats-page" style="margin-bottom: 38px">
+    <h4 style="text-transform: uppercase; text-align: center; margin-top: 38px">Lorem ipsum dolor sit</h4>
     <div class="row full-width">
       <div style="margin-right: 60px">
         <div>КОМНАТЫ</div>
@@ -18,15 +18,15 @@
       >
         {{rangeFilter.label}}
         <div class="row">
-          <q-input v-model="rangeFilter.value.min" outlined color="black" />
+          <input class="range-filter-input" v-model="rangeFilter.value.min">
           <div class="dash" style="width: 15px;">-</div>
-          <q-input v-model="rangeFilter.value.max" outlined color="black" />
+          <input class="range-filter-input" v-model="rangeFilter.value.max">
         </div>
-        <q-range
+        <q-range class="range-filter-range"
           v-model="rangeFilter.value"
           :min="rangeFilter.min"
           :max="rangeFilter.max"
-          style="color: #70D24E"
+          style=""
         />
       </div>
       <div style="padding-top: 28px; width: 201px;">
@@ -115,15 +115,4 @@ export default {
 </script>
 
 <style lang="scss">
-.q-field {
-  width: 80px;
-  .q-field__control {
-    height: 40px;
-    border-color: #EBEBEB;
-    text-align-last: center;
-    font-size: 16px;
-  }
-  background-color: white;
-}
-
 </style>
