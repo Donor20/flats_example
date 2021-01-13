@@ -11,10 +11,14 @@ $flat-border-radius: 5px;
 
 
 .main-layout {
-  max-width: 1200px;
+  max-width: 1170px;
   height: 100%;
   margin: 0 auto;
-
+  .dash {
+    opacity: 50%;
+    align-self: center;
+    text-align: center;
+  }
   .rooms-filter-group {
     .q-btn {
       height: 40px;

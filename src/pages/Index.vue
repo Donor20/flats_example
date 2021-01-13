@@ -17,9 +17,9 @@
            style="margin-right: 60px"
       >
         {{rangeFilter.label}}
-        <div class="row q-gutter-xs">
+        <div class="row">
           <q-input v-model="rangeFilter.value.min" outlined color="black" />
-          <div style="width: 15px;">-</div>
+          <div class="dash" style="width: 15px;">-</div>
           <q-input v-model="rangeFilter.value.max" outlined color="black" />
         </div>
         <q-range
@@ -120,6 +120,8 @@ export default {
   .q-field__control {
     height: 40px;
     border-color: #EBEBEB;
+    text-align-last: center;
+    font-size: 16px;
   }
   background-color: white;
 }

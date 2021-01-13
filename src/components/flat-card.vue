@@ -6,7 +6,7 @@
         <div class="row q-ml-auto">
           {{flat.rooms}}
           {{roomWord}}
-          -
+          <div class="dash" style="width: 25px;">-</div>
           {{flat.square}} м²
         </div>
       </div>
