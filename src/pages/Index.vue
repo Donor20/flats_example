@@ -1,47 +1,46 @@
 <template>
-  <q-page class="flex flex-center">
-    <div style="max-width: 1200px;">
-      <h4 style="text-transform: uppercase; text-align: center;">Lorem ipsum dolor sit</h4>
-      <div class="row full-width">
-        <div style="margin-right: 60px">
-          <div>КОМНАТЫ</div>
-          <div class="rooms-filter-group row q-gutter-xs">
-            <q-btn v-for="ro in roomsOptions" :key="ro.value"
-                   @click="roomsFilter === ro.value ? roomsFilter = null : roomsFilter = ro.value"
-                   class="no-shadow"
-                   :class="{ 'active-btn': roomsFilter === ro.value }"
-                   unelevated no-caps style="width: 48px"
-            >{{ro.label}}</q-btn>
-          </div>
-        </div>
-        <div v-for="rangeFilter in rangeFilters" :key="rangeFilter.key"
-             style="margin-right: 60px"
-        >
-          {{rangeFilter.label}}
-          <div class="row q-gutter-xs">
-            <q-input v-model="rangeFilter.value.min" outlined color="black" />
-            <div style="width: 15px;">-</div>
-            <q-input v-model="rangeFilter.value.max" outlined color="black" />
-          </div>
-          <q-range
-            v-model="rangeFilter.value"
-            :min="rangeFilter.min"
-            :max="rangeFilter.max"
-            style="color: #70D24E"
-          />
-        </div>
-        <div style="padding-top: 28px; width: 201px;">
-          <q-btn @click="getFlats"
-                 class="active-btn" style="width: 201px;" unelevated>
-            Применить
-          </q-btn>
-          <a @click="resetFilters"
-            href="#"
-            style="text-transform: uppercase;"
-          >сбросить фильтр</a>
+  <q-page class="page">
+    <h4 style="text-transform: uppercase; text-align: center;">Lorem ipsum dolor sit</h4>
+    <div class="row full-width">
+      <div style="margin-right: 60px">
+        <div>КОМНАТЫ</div>
+        <div class="rooms-filter-group row q-gutter-xs">
+          <q-btn v-for="ro in roomsOptions" :key="ro.value"
+                 @click="roomsFilter === ro.value ? roomsFilter = null : roomsFilter = ro.value"
+                 class="no-shadow"
+                 :class="{ 'active-btn': roomsFilter === ro.value }"
+                 unelevated no-caps style="width: 48px"
+          >{{ro.label}}</q-btn>
         </div>
       </div>
-      <!--    <q-scroll-area style="height: 700px">-->
+      <div v-for="rangeFilter in rangeFilters" :key="rangeFilter.key"
+           style="margin-right: 60px"
+      >
+        {{rangeFilter.label}}
+        <div class="row q-gutter-xs">
+          <q-input v-model="rangeFilter.value.min" outlined color="black" />
+          <div style="width: 15px;">-</div>
+          <q-input v-model="rangeFilter.value.max" outlined color="black" />
+        </div>
+        <q-range
+          v-model="rangeFilter.value"
+          :min="rangeFilter.min"
+          :max="rangeFilter.max"
+          style="color: #70D24E"
+        />
+      </div>
+      <div style="padding-top: 28px; width: 201px;">
+        <q-btn @click="getFlats"
+               class="active-btn" style="width: 201px;" unelevated>
+          Применить
+        </q-btn>
+        <a @click="resetFilters"
+          href="#"
+          style="text-transform: uppercase;"
+        >сбросить фильтр</a>
+      </div>
+    </div>
+    <q-scroll-area class="scrollArea">
       <div class="row q-gutter-md">
         <flat-card v-for="flat in flats" :key="flat.building_id + '_' + flat.id"
                    class="my-card"
@@ -49,8 +48,7 @@
                    style="width: 270px; height: 365px;"
         />
       </div>
-      <!--    </q-scroll-area>-->
-    </div>
+    </q-scroll-area>
   </q-page>
 </template>
 
