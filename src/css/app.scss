@@ -172,15 +172,20 @@ $flat-border-radius: 5px;
     }
     .flat-card {
       .flat-plan {
+        transition: all 0.4s ease;
         width: 250px;
         height: 250px;
       }
       .flat-plan-img {
+        //transition: all 0.4s ease;
         width: 230px;
         margin-left: 10px;
       }
       .active-btn {
-        display: none;
+        transition: all 0.4s ease;
+        //display: none;
+        height: 0;
+        opacity: 0;
       }
     }
     .porch {
@@ -195,7 +200,9 @@ $flat-border-radius: 5px;
         height: 200px;
       }
       .active-btn {
-        display: inline-flex;
+        //display: inline-flex;
+        height: 40px;
+        opacity: 1;
       }
     }
   }
