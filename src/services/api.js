@@ -114,11 +114,13 @@ const flats = [
 ]
 
 class API {
-  async getFlats ({ rooms, porch }) {
+  async getFlats ({ rooms, porch, square, price }) {
     const result = []
     for (const flat of flats) {
       if (rooms && flat.rooms !== rooms) continue
       if (flat.porch < porch.min || flat.porch > porch.max) continue
+      if (flat.square < square.min || flat.square > square.max) continue
+      if (flat.price < price.min * 1000000 || flat.price > price.max * 1000000) continue
       result.push(flat)
     }
     return result
