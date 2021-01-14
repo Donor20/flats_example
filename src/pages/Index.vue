@@ -12,24 +12,9 @@
           >{{ro.label}}</q-btn>
         </div>
       </div>
-      <div class="range-filters" v-for="rangeFilter in rangeFilters" :key="rangeFilter.key">
-        <div class="filter-title row">
-          <span v-for="(t, index) in rangeFilter.label.split('²')" :key="index">
-            <template v-if="index === 0">{{t}}</template>
-            <template v-else><span class="small-number-2">2</span>{{t}}</template>
-          </span>
-        </div>
-        <div class="row">
-          <input class="range-filter-input" v-model="rangeFilter.value.min">
-          <span class="dash">-</span>
-          <input class="range-filter-input" v-model="rangeFilter.value.max">
-        </div>
-        <q-range class="range-filter-range"
-          v-model="rangeFilter.value"
-          :min="rangeFilter.min"
-          :max="rangeFilter.max"
-        />
-      </div>
+      <range-filter v-for="rangeFilter in rangeFilters" :key="rangeFilter.key"
+                    :rangeFilter="rangeFilter"
+      />
       <div class="success-btn">
         <q-btn @click="getFlats" class="active-btn" unelevated>
           Применить
@@ -52,10 +37,11 @@
 <script>
 import api from '../services/api'
 import FlatCard from '../components/flat-card'
+import RangeFilter from '../components/range-filter'
 
 export default {
   name: 'PageIndex',
-  components: { FlatCard },
+  components: { RangeFilter, FlatCard },
   data () {
     return {
       flats: [],
@@ -65,26 +51,31 @@ export default {
         { label: '1к', value: 1 },
         { label: '2к', value: 2 },
         { label: '3к', value: 3 }
-      ],
-      rangeFilters: [{
-        key: 'porch',
-        label: 'ЭТАЖ',
-        min: 0,
-        max: 100,
-        value: { min: 0, max: 100 }
-      }, {
-        key: 'square',
-        label: 'ПЛОЩАДЬ, м²',
-        min: 0,
-        max: 1000,
-        value: { min: 0, max: 1000 }
-      }, {
-        key: 'price',
-        label: 'СТОИМОСТЬ, млн. р.',
-        min: 0.0,
-        max: 100.0,
-        value: { min: 0.0, max: 100.0 }
-      }]
+      ]
+      // rangeFilters: [{
+      //   key: 'porch',
+      //   label: 'ЭТАЖ',
+      //   min: 0,
+      //   max: 100,
+      //   value: { min: 0, max: 100 }
+      // }, {
+      //   key: 'square',
+      //   label: 'ПЛОЩАДЬ, м²',
+      //   min: 0,
+      //   max: 1000,
+      //   value: { min: 0, max: 1000 }
+      // }, {
+      //   key: 'price',
+      //   label: 'СТОИМОСТЬ, млн. р.',
+      //   min: 0.0,
+      //   max: 100.0,
+      //   value: { min: 0.0, max: 100.0 }
+      // }]
+    }
+  },
+  computed: {
+    rangeFilters () {
+      return this.$store.getters['filters/ranges']
     }
   },
   methods: {

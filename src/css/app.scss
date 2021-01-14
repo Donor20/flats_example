@@ -11,6 +11,30 @@ $flat-border-radius: 5px;
 
 
 .main-layout {
+  .rangeFilter {
+    .dash {
+      width: 15px;
+    }
+    .rangeFilterName {
+      font-weight: bold;
+      font-size: 12px;
+    }
+    .rangeFilterInput {
+      border: 1px solid $flat-border-color;
+      border-radius: $flat-border-radius;
+      font-size: 16px;
+      text-align: center;
+      width: 80px;
+      height: 40px;
+      background-color: white;
+    }
+    .rangeFilterRange {
+      color: $flat-active-color;
+      height: 32px;
+    }
+  }
+
+
   background-color:  #F8F8F8;
 
   font-family: GothamPro,serif;
@@ -72,10 +96,6 @@ $flat-border-radius: 5px;
         }
       }
     }
-    .filter-title {
-      font-weight: bold;
-      font-size: 12px;
-    }
     .q-btn {
       height: 40px;
       font-weight: bold;
@@ -87,11 +107,6 @@ $flat-border-radius: 5px;
         background-color: white;
         margin-left: 4px;
         width: 48px;
-      }
-    }
-    .range-filters {
-      .dash {
-        width: 15px;
       }
     }
     .q-btn.active-btn {
@@ -107,19 +122,8 @@ $flat-border-radius: 5px;
     text-align: center;
   }
 
-  .range-filter-input, .q-btn {
+  .q-btn {
     border-radius: $flat-border-radius;
-  }
-  .range-filter-input {
-    border: 1px solid $flat-border-color;
-    text-align: center;
-    font-size: 16px;
-    width: 80px;
-    height: 40px;
-  }
-  .range-filter-range {
-    color: $flat-active-color;
-    height: 32px;
   }
 
   .rooms-cards-group {

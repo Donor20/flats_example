@@ -4,7 +4,10 @@
   </div>
 </template>
 <script>
+import store from './store/index'
+
 export default {
-  name: 'App'
+  name: 'App',
+  store
 }
 </script>
