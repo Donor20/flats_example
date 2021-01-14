@@ -9,12 +9,12 @@
     <div class="row">
       <q-input class="rangeFilterInput"
              :value="rangeFilter.value.min"
-             @input="onInput('min', $event)"
+             @input="onInputMin($event)"
       />
       <span class="dash">-</span>
       <q-input class="rangeFilterInput"
              :value="rangeFilter.value.max"
-             @input="onInput('max', $event)"
+             @input="onInputMax($event)"
       />
     </div>
     <q-range class="rangeFilterRange"
@@ -30,9 +30,13 @@ export default {
   name: 'range-filter',
   props: ['rangeFilter'],
   methods: {
-    onInput (key, e) {
-      console.warn(e)
-      this.rangeFilter.value[key] = e
+    onInputMin (value) {
+      const key = this.rangeFilter.key
+      this.$store.dispatch('filters/setMinRangeValue', { key, value })
+    },
+    onInputMax (value) {
+      const key = this.rangeFilter.key
+      this.$store.dispatch('filters/setMaxRangeValue', { key, value })
     }
   }
 }

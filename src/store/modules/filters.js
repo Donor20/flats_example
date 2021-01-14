@@ -32,9 +32,11 @@ export default {
   },
   mutations: {
     setMinRangeValue (state, { key, value }) {
+      if (value < state.ranges[key].min) value = state.ranges[key].min
       state.ranges[key].value.min = value
     },
     setMaxRangeValue (state, { key, value }) {
+      if (value > state.ranges[key].max) value = state.ranges[key].max
       state.ranges[key].value.max = value
     }
   },
@@ -43,7 +45,7 @@ export default {
       commit('setMinRangeValue', { key, value })
     },
     setMaxRangeValue ({ state, commit, rootState }, { key, value }) {
-      commit('setMinRangeValue', { key, value })
+      commit('setMaxRangeValue', { key, value })
     }
     // reset({ state, commit, rootState }, except = []) {
     //   for (let settingKey in state.list) {
