@@ -1,5 +1,5 @@
 <template>
-  <q-card class="flat-card no-shadow">
+  <q-card class="flatCard no-shadow">
     <q-card-section>
       <div class="row top-words">
         <div class="porch">{{flat.porch}} этаж</div>
@@ -7,20 +7,20 @@
           {{flat.rooms}}
           {{roomWord}}
           <span class="dash">-</span>
-          {{flat.square}} м<span class="small-number-2">2</span>
+          {{flat.square}} м<span class="smallNumber">2</span>
         </div>
       </div>
-      <div class="flat-plan items-center">
-        <div class="flat-number q-ml-auto">
+      <div class="flatPlan items-center">
+        <div class="flatNumber q-ml-auto">
           № {{flat.number}}
         </div>
-        <q-img class="flat-plan-img" :src="flat.plan"></q-img>
+        <q-img class="flatPlanImg" :src="flat.plan"></q-img>
       </div>
-      <div class="text-right price-field">{{formattedPrice}}р.</div>
-      <div class="text-right price-field-square">
-        {{formattedPriceForSquare}} р. за м<span class="small-number-2">2</span>
+      <div class="text-right priceField">{{formattedPrice}}р.</div>
+      <div class="text-right priceSquareField">
+        {{formattedPriceForSquare}} р. за м<span class="smallNumber">2</span>
       </div>
-      <q-btn class="active-btn full-width" unelevated>
+      <q-btn class="activeBtn full-width" unelevated>
         Подробнее
       </q-btn>
     </q-card-section>

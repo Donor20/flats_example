@@ -3,7 +3,7 @@
     <div class="rangeFilterName row">
           <span v-for="(t, index) in rangeFilter.label.split('²')" :key="index">
             <template v-if="index === 0">{{t}}</template>
-            <template v-else><span class="small-number-2">2</span>{{t}}</template>
+            <template v-else><span class="smallNumber">2</span>{{t}}</template>
           </span>
     </div>
     <div class="row">

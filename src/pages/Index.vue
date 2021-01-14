@@ -1,13 +1,13 @@
 <template>
-  <q-page class="page flats-page">
-    <h4 class="title">Lorem ipsum dolor sit</h4>
-    <div class="filters-group row">
-      <div>
-        <div class="filter-title">КОМНАТЫ</div>
-        <div class="rooms-filter-group row">
+  <q-page class="page flatsPage">
+    <h4 class="flatsPageTitle">Lorem ipsum dolor sit</h4>
+    <div class="flatsPageFilters row">
+      <div class="rangeFilter">
+        <div class="rangeFilterName">КОМНАТЫ</div>
+        <div class="roomsFilter row">
           <q-btn v-for="ro in roomsOptions" :key="ro.value"
                  @click="roomsFilter === ro.value ? roomsFilter = null : roomsFilter = ro.value"
-                 class="no-shadow" :class="{ 'active-btn': roomsFilter === ro.value }"
+                 class="no-shadow" :class="{ 'activeBtn': roomsFilter === ro.value }"
                  unelevated no-caps
           >{{ro.label}}</q-btn>
         </div>
@@ -15,19 +15,19 @@
       <range-filter v-for="rangeFilter in rangeFilters" :key="rangeFilter.key"
                     :rangeFilter="rangeFilter"
       />
-      <div class="success-btn">
-        <q-btn @click="getFlats" class="active-btn" unelevated>
+      <div class="btnsFilters">
+        <q-btn @click="getFlats" class="activeBtn" unelevated>
           Применить
         </q-btn>
-        <div class="refresh-filters" @click="resetFilters">
+        <div class="refreshFiltersBtn" @click="resetFilters">
           <span>сбросить фильтр</span>
         </div>
       </div>
     </div>
     <q-scroll-area class="scrollArea">
-      <div class="row rooms-cards-group">
+      <div class="row flatCards">
         <flat-card v-for="flat in flats" :key="flat.building_id + '_' + flat.id"
-                   class="my-card" :flat="flat"
+                   :flat="flat"
         />
       </div>
     </q-scroll-area>

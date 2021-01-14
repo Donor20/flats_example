@@ -11,6 +11,11 @@ $flat-border-radius: 5px;
 
 
 .main-layout {
+  background-color:  #F8F8F8;
+  font-family: GothamPro,serif;
+  line-height: 28px;
+  height: 100%;
+
   .rangeFilter {
     .dash {
       width: 15px;
@@ -34,23 +39,15 @@ $flat-border-radius: 5px;
     }
   }
 
-
-  background-color:  #F8F8F8;
-
-  font-family: GothamPro,serif;
-  line-height: 28px;
-
-  //font-size: 12px;
-  //max-width: 1170px;
-  height: 100%;
-  //margin: 10px;
-
-
-  .small-number-2 {
+  .dash {
+    opacity: 50%;
+    align-self: center;
+    text-align: center;
+  }
+  .smallNumber {
     font-size: 8px;
     vertical-align: top;
   }
-
   .page {
     display: flex;
     flex-direction: column;
@@ -63,36 +60,37 @@ $flat-border-radius: 5px;
     overflow: auto;
   }
 
-  .flats-page {
+  .flatsPage {
     max-width: 1200px;
     margin: 0 auto;
     padding-left: 15px;
-    & > .title {
+    & > .flatsPageTitle {
       text-transform: uppercase;
       text-align: center;
       margin-top: 38px;
       margin-bottom: 50px;
     }
-    .filters-group {
+    .flatsPageFilters {
       margin-left: -60px;
       & > :nth-child(n) {
         margin-left: 60px;
       }
-      .success-btn {
+
+      .btnsFilters {
         padding-top: 28px;
         width: 201px;
         .q-btn {
           width: 100%;
         }
-        .refresh-filters {
-          text-transform: uppercase;
-          font-size: 10px;
-          font-weight: bold;
-          text-align: center;
-          cursor: pointer;
-          span {
-            border-bottom: 1px solid $flat-active-color;
-          }
+      }
+      .refreshFiltersBtn {
+        text-transform: uppercase;
+        font-size: 10px;
+        font-weight: bold;
+        text-align: center;
+        cursor: pointer;
+        span {
+          border-bottom: 1px solid $flat-active-color;
         }
       }
     }
@@ -100,7 +98,7 @@ $flat-border-radius: 5px;
       height: 40px;
       font-weight: bold;
     }
-    .rooms-filter-group {
+    .roomsFilter {
       margin-left: -4px;
       .q-btn {
         border: 1px solid $flat-border-color;
@@ -109,27 +107,21 @@ $flat-border-radius: 5px;
         width: 48px;
       }
     }
-    .q-btn.active-btn {
+    .q-btn.activeBtn {
       background-color: $flat-active-color;
       color: white;
       border: 0;
     }
   }
 
-  .dash {
-    opacity: 50%;
-    align-self: center;
-    text-align: center;
-  }
-
   .q-btn {
     border-radius: $flat-border-radius;
   }
 
-  .rooms-cards-group {
+  .flatCards {
     margin-top: -30px;
     margin-left: -30px;
-    .my-card {
+    .flatCard {
       width: 270px;
       height: 365px;
       margin-top: 30px;
@@ -148,11 +140,11 @@ $flat-border-radius: 5px;
             width: 25px;
           }
         }
-        .flat-plan {
+        .flatPlan {
           border: 1px solid $flat-border-color;
           border-radius: $flat-border-radius
         }
-        .flat-number {
+        .flatNumber {
           border-left: 1px solid #EBEBEB;
           border-bottom: 1px solid #EBEBEB;
           border-bottom-left-radius: 5px;
@@ -161,12 +153,12 @@ $flat-border-radius: 5px;
           text-align: center;
           font-weight: bold;
         }
-        .price-field {
+        .priceField {
           font-size: 20px;
           font-weight: bold;
           margin-top: 11px;
         }
-        .price-field-square {
+        .priceSquareField {
           opacity: 50%;
           font-weight: bold;
           font-size: 12px;
@@ -174,20 +166,19 @@ $flat-border-radius: 5px;
         }
       }
     }
-    .flat-card {
-      .flat-plan {
+    .flatCard {
+      .flatPlan {
         transition: all 0.4s ease;
         width: 250px;
         height: 250px;
       }
-      .flat-plan-img {
+      .flatPlanImg {
         //transition: all 0.4s ease;
         width: 230px;
         margin-left: 10px;
       }
-      .active-btn {
+      .activeBtn {
         transition: all 0.4s ease;
-        //display: none;
         height: 0;
         opacity: 0;
       }
@@ -195,16 +186,15 @@ $flat-border-radius: 5px;
     .porch {
       opacity: 50%
     }
-    .flat-card:hover {
-      .flat-plan-img {
+    .flatCard:hover {
+      .flatPlanImg {
         width: 186px;
         margin-left: 32px;
       }
-      .flat-plan {
+      .flatPlan {
         height: 200px;
       }
-      .active-btn {
-        //display: inline-flex;
+      .activeBtn {
         height: 40px;
         opacity: 1;
       }
