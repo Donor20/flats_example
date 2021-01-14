@@ -7,7 +7,7 @@
           {{flat.rooms}}
           {{roomWord}}
           <span class="dash">-</span>
-          {{flat.square}} м²
+          {{flat.square}} м<span class="small-number-2">2</span>
         </div>
       </div>
       <div class="flat-plan items-center">
