@@ -12,37 +12,64 @@ $flat-border-radius: 5px;
 
 .main-layout {
   background-color:  #F8F8F8;
+
   font-family: GothamPro,serif;
-  font-size: 12px;
   line-height: 28px;
+
+  //font-size: 12px;
   //max-width: 1170px;
   height: 100%;
   //margin: 10px;
+
   .flats-page {
     max-width: 1200px;
     margin: 0 auto;
     padding-left: 15px;
+    & > .title {
+      text-transform: uppercase;
+      text-align: center;
+      margin-top: 38px;
+      margin-bottom: 50px;
+    }
+    .filters-group {
+      margin-left: -60px;
+      & > :nth-child(n) {
+        margin-left: 60px;
+      }
+    }
+
+
+    .filter-title {
+      font-weight: bold;
+      font-size: 12px;
+    }
+
+    .q-btn {
+      height: 40px;
+      font-weight: bold;
+    }
+    .rooms-filter-group {
+      margin-left: -4px;
+      .q-btn {
+        border: 1px solid $flat-border-color;
+        background-color: white;
+        margin-left: 4px;
+        width: 48px;
+      }
+    }
+    .q-btn.active-btn {
+      background-color: $flat-active-color;
+      color: white;
+      border: 0;
+    }
   }
+
   .dash {
     opacity: 50%;
     align-self: center;
     text-align: center;
   }
-  .rooms-filter-group {
-    .q-btn {
-      border: 1px solid $flat-border-color;
-      background-color: white;
-    }
-  }
-  .q-btn {
-    height: 40px;
-    font-weight: bold;
-  }
-  .q-btn.active-btn {
-    background-color: $flat-active-color;
-    color: white;
-    border: 0;
-  }
+
   .range-filter-input, .q-btn {
     border-radius: $flat-border-radius;
   }

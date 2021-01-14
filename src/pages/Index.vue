@@ -1,22 +1,24 @@
 <template>
   <q-page class="page flats-page" style="margin-bottom: 38px">
-    <h4 style="text-transform: uppercase; text-align: center; margin-top: 38px">Lorem ipsum dolor sit</h4>
-    <div class="row full-width">
-      <div style="margin-right: 60px">
-        <div>КОМНАТЫ</div>
-        <div class="rooms-filter-group row q-gutter-xs">
+    <h4 class="title">Lorem ipsum dolor sit</h4>
+    <div class="filters-group row">
+      <div>
+        <div class="filter-title">КОМНАТЫ</div>
+        <div class="rooms-filter-group row">
           <q-btn v-for="ro in roomsOptions" :key="ro.value"
                  @click="roomsFilter === ro.value ? roomsFilter = null : roomsFilter = ro.value"
-                 class="no-shadow"
-                 :class="{ 'active-btn': roomsFilter === ro.value }"
-                 unelevated no-caps style="width: 48px"
+                 class="no-shadow" :class="{ 'active-btn': roomsFilter === ro.value }"
+                 unelevated no-caps
           >{{ro.label}}</q-btn>
         </div>
       </div>
-      <div v-for="rangeFilter in rangeFilters" :key="rangeFilter.key"
-           style="margin-right: 60px"
-      >
-        {{rangeFilter.label}}
+      <div v-for="rangeFilter in rangeFilters" :key="rangeFilter.key">
+        <div class="filter-title row">
+          <span v-for="(t, index) in rangeFilter.label.split('²')" :key="index">
+            <template v-if="index === 0">{{t}}</template>
+            <template v-else><span style="font-size: 8px; vertical-align: top;">2</span>{{t}}</template>
+          </span>
+        </div>
         <div class="row">
           <input class="range-filter-input" v-model="rangeFilter.value.min">
           <div class="dash" style="width: 15px;">-</div>
