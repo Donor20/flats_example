@@ -9,16 +9,19 @@
     <div class="row">
       <q-input class="rangeFilterInput"
              :value="rangeFilter.value.min"
-             @input="onInputMin($event)"
+             @input="onInputMin"
+             borderless
       />
       <span class="dash">-</span>
       <q-input class="rangeFilterInput"
              :value="rangeFilter.value.max"
-             @input="onInputMax($event)"
+             @input="onInputMax"
+             borderless
       />
     </div>
     <q-range class="rangeFilterRange"
-             v-model="rangeFilter.value"
+             :value="rangeFilter.value"
+             @input="onRangeInput"
              :min="rangeFilter.min"
              :max="rangeFilter.max"
     />
@@ -37,6 +40,11 @@ export default {
     onInputMax (value) {
       const key = this.rangeFilter.key
       this.$store.dispatch('filters/setMaxRangeValue', { key, value })
+    },
+    onRangeInput ({ min, max }) {
+      const key = this.rangeFilter.key
+      this.$store.dispatch('filters/setMinRangeValue', { key, value: min })
+      this.$store.dispatch('filters/setMaxRangeValue', { key, value: max })
     }
   }
 }

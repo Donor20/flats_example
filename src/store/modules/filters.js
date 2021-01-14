@@ -32,12 +32,22 @@ export default {
   },
   mutations: {
     setMinRangeValue (state, { key, value }) {
+      if (!Number(value)) return
       if (value < state.ranges[key].min) value = state.ranges[key].min
+      if (value > state.ranges[key].max) value = state.ranges[key].max
       state.ranges[key].value.min = value
     },
-    setMaxRangeValue (state, { key, value }) {
+    setMaxRangeValue (state, { key, valueKey, value }) {
+      if (!Number(value)) return
+      if (value < state.ranges[key].min) value = state.ranges[key].min
       if (value > state.ranges[key].max) value = state.ranges[key].max
       state.ranges[key].value.max = value
+    },
+    resetRanges (state) {
+      for (const range of Object.values(state.ranges)) {
+        range.value.min = range.min
+        range.value.max = range.max
+      }
     }
   },
   actions: {
@@ -46,18 +56,9 @@ export default {
     },
     setMaxRangeValue ({ state, commit, rootState }, { key, value }) {
       commit('setMaxRangeValue', { key, value })
+    },
+    resetRanges ({ state, commit, rootState }) {
+      commit('resetRanges')
     }
-    // reset({ state, commit, rootState }, except = []) {
-    //   for (let settingKey in state.list) {
-    //     if (!except.includes(settingKey)) {
-    //       commit("init", {
-    //         key: settingKey,
-    //         value: state.list[settingKey].defaultValue
-    //       });
-    //       ChatDb.then(db => db.deleteSetting(settingKey));
-    //       LocalStorage.remove(settingKey);
-    //     }
-    //   }
-    // }
   }
 }

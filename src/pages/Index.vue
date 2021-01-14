@@ -52,25 +52,6 @@ export default {
         { label: '2к', value: 2 },
         { label: '3к', value: 3 }
       ]
-      // rangeFilters: [{
-      //   key: 'porch',
-      //   label: 'ЭТАЖ',
-      //   min: 0,
-      //   max: 100,
-      //   value: { min: 0, max: 100 }
-      // }, {
-      //   key: 'square',
-      //   label: 'ПЛОЩАДЬ, м²',
-      //   min: 0,
-      //   max: 1000,
-      //   value: { min: 0, max: 1000 }
-      // }, {
-      //   key: 'price',
-      //   label: 'СТОИМОСТЬ, млн. р.',
-      //   min: 0.0,
-      //   max: 100.0,
-      //   value: { min: 0.0, max: 100.0 }
-      // }]
     }
   },
   computed: {
@@ -81,10 +62,7 @@ export default {
   methods: {
     resetFilters () {
       this.roomsFilter = null
-      for (const rangeFilter of this.rangeFilters) {
-        rangeFilter.value.min = rangeFilter.min
-        rangeFilter.value.max = rangeFilter.max
-      }
+      this.$store.dispatch('filters/resetRanges')
       this.getFlats()
     },
     getFlats () {
