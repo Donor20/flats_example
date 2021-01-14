@@ -1,26 +1,24 @@
 <template>
   <q-card class="flat-card no-shadow">
     <q-card-section>
-      <div class="row">
-        <div style="opacity: 50%">{{flat.porch}} этаж</div>
+      <div class="row top-words">
+        <div class="porch">{{flat.porch}} этаж</div>
         <div class="row q-ml-auto">
           {{flat.rooms}}
           {{roomWord}}
-          <div class="dash" style="width: 25px;">-</div>
+          <span class="dash">-</span>
           {{flat.square}} м²
         </div>
       </div>
-      <div class="flat-plan items-center"
-           style="border: 1px solid #EBEBEB; border-radius: 5px;"
-      >
-        <div class="q-ml-auto" style="border-left: 1px solid #EBEBEB; border-bottom: 1px solid #EBEBEB; border-bottom-left-radius: 5px; width: 62px; height: 30px;">
+      <div class="flat-plan items-center">
+        <div class="flat-number q-ml-auto">
           № {{flat.number}}
         </div>
         <q-img class="flat-plan-img" :src="flat.plan"></q-img>
       </div>
-      <div class="text-right" style="font-size: 20px; font-weight: bold;">{{formattedPrice}}р.</div>
-      <div class="text-right" style="opacity: 50%; font-weight: bold;">
-        {{formattedPriceForSquare}} р. за м<span style="font-size: 8px; vertical-align: top;">2</span>
+      <div class="text-right price-field">{{formattedPrice}}р.</div>
+      <div class="text-right price-field-square">
+        {{formattedPriceForSquare}} р. за м<span class="small-number-2">2</span>
       </div>
       <q-btn class="active-btn full-width" unelevated>
         Подробнее
@@ -62,30 +60,3 @@ export default {
   }
 }
 </script>
-
-<style scoped lang="scss">
-.flat-card {
-  .flat-plan {
-    width: 250px;
-    height: 250px;
-  }
-  .flat-plan-img {
-    width: 230px;
-    margin: auto;
-  }
-  .active-btn {
-    display: none;
-  }
-}
-.flat-card:hover {
-  .flat-plan-img {
-    width: 186px;
-  }
-  .flat-plan {
-    height: 200px;
-  }
-  .active-btn {
-    display: inline-flex;
-  }
-}
-</style>

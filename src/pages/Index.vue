@@ -1,5 +1,5 @@
 <template>
-  <q-page class="page flats-page" style="margin-bottom: 38px">
+  <q-page class="page flats-page">
     <h4 class="title">Lorem ipsum dolor sit</h4>
     <div class="filters-group row">
       <div>
@@ -12,16 +12,16 @@
           >{{ro.label}}</q-btn>
         </div>
       </div>
-      <div v-for="rangeFilter in rangeFilters" :key="rangeFilter.key">
+      <div class="range-filters" v-for="rangeFilter in rangeFilters" :key="rangeFilter.key">
         <div class="filter-title row">
           <span v-for="(t, index) in rangeFilter.label.split('²')" :key="index">
             <template v-if="index === 0">{{t}}</template>
-            <template v-else><span style="font-size: 8px; vertical-align: top;">2</span>{{t}}</template>
+            <template v-else><span class="small-number-2">2</span>{{t}}</template>
           </span>
         </div>
         <div class="row">
           <input class="range-filter-input" v-model="rangeFilter.value.min">
-          <div class="dash" style="width: 15px;">-</div>
+          <span class="dash">-</span>
           <input class="range-filter-input" v-model="rangeFilter.value.max">
         </div>
         <q-range class="range-filter-range"
@@ -30,23 +30,19 @@
           :max="rangeFilter.max"
         />
       </div>
-      <div style="padding-top: 28px; width: 201px;">
-        <q-btn @click="getFlats"
-               class="active-btn" style="width: 201px;" unelevated>
+      <div class="success-btn">
+        <q-btn @click="getFlats" class="active-btn" unelevated>
           Применить
         </q-btn>
-        <a @click="resetFilters"
-          href="#"
-          style="text-transform: uppercase;"
-        >сбросить фильтр</a>
+        <div class="refresh-filters" @click="resetFilters">
+          <span>сбросить фильтр</span>
+        </div>
       </div>
     </div>
     <q-scroll-area class="scrollArea">
-      <div class="row" style="margin-top: -30px; margin-left: -30px;">
+      <div class="row rooms-cards-group">
         <flat-card v-for="flat in flats" :key="flat.building_id + '_' + flat.id"
-                   class="my-card"
-                   :flat="flat"
-                   style="width: 270px; height: 365px; margin-top: 30px; margin-left: 30px;"
+                   class="my-card" :flat="flat"
         />
       </div>
     </q-scroll-area>
@@ -98,6 +94,7 @@ export default {
         rangeFilter.value.min = rangeFilter.min
         rangeFilter.value.max = rangeFilter.max
       }
+      this.getFlats()
     },
     getFlats () {
       const filters = { rooms: this.roomsFilter }
@@ -114,6 +111,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-</style>

@@ -20,17 +20,3 @@ export default {
   }
 }
 </script>
-
-<style>
-.page {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  height: 100%;
-}
-.scrollArea {
-  flex: 1;
-  width: 100%;
-  overflow: auto;
-}
-</style>
